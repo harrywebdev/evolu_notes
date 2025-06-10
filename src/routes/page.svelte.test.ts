@@ -8,4 +8,9 @@ describe('/+page.svelte', () => {
 		render(Page);
 		expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
 	});
+
+	test('has "add note" link', () => {
+		render(Page);
+		expect(screen.getByTestId('action:add-note')).toBeInTheDocument();
+	});
 });

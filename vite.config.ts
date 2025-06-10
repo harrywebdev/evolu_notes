@@ -29,5 +29,15 @@ export default defineConfig({
 				}
 			}
 		]
+	},
+	optimizeDeps: {
+		// A workaround for Vite bug: https://github.com/vitejs/vite/issues/13314#issuecomment-1560745780
+		exclude: ['@evolu/web']
+	},
+	preview: {
+		headers: {
+			'Cross-Origin-Opener-Policy': 'same-origin',
+			'Cross-Origin-Embedder-Policy': 'require-corp'
+		}
 	}
 });
