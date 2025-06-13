@@ -1,8 +1,8 @@
 import { evolu } from './evolu';
-import { NoteTitle, NoteContent } from './note.model';
+import { NoteTitle, NoteContent, NoteId } from './note.model';
 import type { kysely } from '@evolu/common';
 
-export const notes = evolu.createQuery(
+export const queryNotes = evolu.createQuery(
 	(db) =>
 		db
 			.selectFrom('note')
@@ -17,6 +17,16 @@ export const notes = evolu.createQuery(
 		// logExplainQueryPlan: true,
 	}
 );
+
+export const queryNoteById = (noteId: NoteId) =>
+	evolu.createQuery((db) =>
+		db
+			.selectFrom('note')
+			.select(['id', 'title', 'content', 'createdAt'])
+			.where('id', '=', noteId)
+			.where('isDeleted', 'is not', 1)
+			.limit(1)
+	);
 
 const { insert } = evolu;
 

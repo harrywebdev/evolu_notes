@@ -1,3 +1,19 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+body {
+	font-family:
+		'SF Pro Text',
+		'Optima',
+		-apple-system,
+		BlinkMacSystemFont,
+		'SF Pro Text',
+		system-ui,
+		sans-serif;
+}
+
+h1,
+h2 {
+	font-family: 'New York', 'Iowan Old Style', serif;
+}
