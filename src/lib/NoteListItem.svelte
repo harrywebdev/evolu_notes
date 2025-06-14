@@ -17,15 +17,19 @@
 	}
 </script>
 
-<div class="rounded-md border border-gray-300 bg-white p-4 shadow-xs">
-	<div class="flex items-center justify-between">
-		<div>
+<div class="rounded-md border border-gray-300 bg-white pr-4 shadow-xs">
+	<div class="flex items-center justify-between gap-4">
+		<div
+			class="my-2 ml-2 flex-1 cursor-pointer rounded-md py-2 pl-2 transition-colors select-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+			role="button"
+			tabindex="0"
+		>
 			<h2 class="text-lg font-medium">{note.title}</h2>
 			<p class="text-sm text-gray-500">{formatDateIso(note.createdAt, true)}</p>
 		</div>
 
 		<select
-			class="rounded-md border-0 bg-gray-200 bg-none px-2 py-1 pl-2 text-center text-sm text-gray-500 [text-align-last:center]"
+			class="rounded-md border-0 bg-gray-200 bg-none px-2 py-1 pl-2 text-center text-sm text-gray-500 transition-colors [text-align-last:center] focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:outline-none"
 			data-test-id="action:note-item-actions"
 			onchange={(ev) => {
 				switch (ev.currentTarget.value) {
