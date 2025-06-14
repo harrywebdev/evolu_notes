@@ -1,13 +1,20 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { deleteNote } from '../app/note.data';
 	import type { Note } from '../app/note.model';
 	import { formatDateIso } from '../app/utils';
-	import Anchor from './Anchor.svelte';
 
 	interface NoteListItemProps {
 		note: Pick<Note, 'id' | 'title' | 'createdAt'>;
 	}
 
 	let { note }: NoteListItemProps = $props();
+
+	function handleDelete() {
+		if (confirm('Are you sure you want to delete this note?')) {
+			deleteNote(note.id);
+		}
+	}
 </script>
 
 <div class="rounded-md border border-gray-300 bg-white p-4 shadow-xs">
@@ -17,6 +24,32 @@
 			<p class="text-sm text-gray-500">{formatDateIso(note.createdAt, true)}</p>
 		</div>
 
-		<Anchor href="/edit-note/{note.id}" testId="action:edit-note">edit</Anchor>
+		<select
+			class="rounded-md border border-gray-400 py-1 pr-8 pl-2 text-sm"
+			data-test-id="action:note-item-actions"
+			onchange={(ev) => {
+				console.log('ev.currentTarget.value', ev.currentTarget.value);
+
+				switch (ev.currentTarget.value) {
+					case 'edit':
+						goto(`/edit-note/${note.id}`);
+						break;
+
+					case 'delete':
+						handleDelete();
+						break;
+
+					case 'action':
+					default:
+						break;
+				}
+
+				ev.currentTarget.value = 'action';
+			}}
+		>
+			<option value="action">action</option>
+			<option value="edit">✎ edit</option>
+			<option value="delete">⊗ delete</option>
+		</select>
 	</div>
 </div>

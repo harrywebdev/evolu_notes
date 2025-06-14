@@ -13,7 +13,7 @@
 </TopNav>
 
 <div class="space-y-3">
-	{#each allNotes.rows as note}
+	{#each allNotes.rows as note (note.id)}
 		<NoteListItem {note}></NoteListItem>
 	{/each}
 </div>

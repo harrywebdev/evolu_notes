@@ -28,10 +28,12 @@ export const queryNoteById = (noteId: NoteId) =>
 			.limit(1)
 	);
 
-const { insert } = evolu;
-
 export const createNewNote = (title: NoteTitle, content: NoteContent) =>
 	insert('note', {
 		title,
 		content
 	});
+
+export const deleteNote = (id: NoteId) => update('note', { id, isDeleted: true });
+
+const { insert, update } = evolu;
