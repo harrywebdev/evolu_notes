@@ -1,4 +1,11 @@
-import { NonEmptyTrimmedString1000, NonEmptyTrimmedString100, id, object } from '@evolu/common';
+import {
+	NonEmptyTrimmedString1000,
+	NonEmptyTrimmedString100,
+	id,
+	object,
+	DateIso,
+	Boolean
+} from '@evolu/common';
 
 export const NoteId = id('NoteId');
 export type NoteId = typeof NoteId.Type;
@@ -19,5 +26,10 @@ export const NoteSchema = {
 	title: NoteTitle,
 	content: NoteContent
 };
-export const Note = object(NoteSchema);
+export const Note = object({
+	...NoteSchema,
+	createdAt: DateIso,
+	updatedAt: DateIso,
+	isDeleted: Boolean
+});
 export type Note = typeof Note.Type;

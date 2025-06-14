@@ -6,3 +6,4 @@ export { default as Button } from './Button.svelte';
 export { default as TopNav } from './TopNav.svelte';
 export { default as NoteForm } from './NoteForm.svelte';
 export { default as LoadingIndicator } from './LoadingIndicator.svelte';
+export { default as NoteListItem } from './NoteListItem.svelte';
