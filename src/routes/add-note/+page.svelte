@@ -21,7 +21,13 @@
 
 		const note = createNote(validNote.value.title, validNote.value.content);
 
-		goto('/');
+		if (!note.ok) {
+			console.error(note.error);
+			alert(note.error);
+			return;
+		}
+
+		goto(`/view-note/${note.value.id}`);
 	}
 </script>
 

@@ -12,7 +12,7 @@
 	let title = '';
 	let content = '';
 
-	// Load the note data
+	// TODO: refactor into guard, maybe organize the notes better for colocation
 	const noteIdParam = NoteId.from(page.params.noteId);
 
 	if (!noteIdParam.ok) {
