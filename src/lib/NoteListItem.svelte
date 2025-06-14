@@ -25,7 +25,7 @@
 		</div>
 
 		<select
-			class="rounded-md border border-gray-400 py-1 pr-8 pl-2 text-sm"
+			class="rounded-md border-0 bg-gray-200 bg-none px-2 py-1 pl-2 text-center text-sm text-gray-500 [text-align-last:center]"
 			data-test-id="action:note-item-actions"
 			onchange={(ev) => {
 				console.log('ev.currentTarget.value', ev.currentTarget.value);
