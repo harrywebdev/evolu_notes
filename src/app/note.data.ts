@@ -28,7 +28,7 @@ export const queryNoteById = (noteId: NoteId) =>
 			.limit(1)
 	);
 
-export const createNewNote = (title: NoteTitle, content: NoteContent) =>
+export const createNote = (title: NoteTitle, content: NoteContent) =>
 	insert('note', {
 		title,
 		content

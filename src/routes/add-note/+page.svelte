@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { Anchor, TopNav, NoteForm } from '$lib';
 	import { CreateNoteSchema } from '../../app/note.model';
-	import { createNewNote } from '../../app/note.data';
+	import { createNote } from '../../app/note.data';
 
 	let title = '';
 	let content = '';
@@ -19,8 +19,7 @@
 			return;
 		}
 
-		const note = createNewNote(validNote.value.title, validNote.value.content);
-		console.log({ note });
+		const note = createNote(validNote.value.title, validNote.value.content);
 
 		goto('/');
 	}
