@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { Anchor, TopNav, NoteForm } from '$lib';
+	import { Anchor, TopNav, NoteForm, LoadingIndicator } from '$lib';
 	import { CreateNoteSchema, NoteId } from '../../../app/note.model';
 	import { evolu } from '../../../app/evolu';
 	import { page } from '$app/state';
@@ -65,11 +65,7 @@
 </TopNav>
 
 {#if isLoading}
-	<div class="flex min-h-48 items-center justify-center">
-		<div
-			class="h-10 w-10 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"
-		></div>
-	</div>
+	<LoadingIndicator />
 {:else}
 	<NoteForm bind:title bind:content onSubmit={handleSubmit} buttonLabel="update note" />
 {/if}
