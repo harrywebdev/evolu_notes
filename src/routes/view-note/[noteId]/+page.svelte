@@ -8,7 +8,7 @@
 	import { NoteId } from '../../../app/note.model';
 	import { goto } from '$app/navigation';
 	import { getOrThrow } from '@evolu/common';
-	import LoadingIndicator from '$lib/LoadingIndicator.svelte';
+	import { LoadingIndicator } from '$lib';
 
 	// TODO: refactor into guard, maybe organize the notes better for colocation
 	const noteIdParam = NoteId.from(page.params.noteId);
