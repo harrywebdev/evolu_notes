@@ -67,5 +67,5 @@
 {#if isLoading}
 	<LoadingIndicator />
 {:else}
-	<NoteForm bind:title bind:content onSubmit={handleSubmit} buttonLabel="update note" />
+	<NoteForm bind:content onSubmit={handleSubmit} buttonLabel="update note" />
 {/if}
